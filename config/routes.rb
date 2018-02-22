@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
+
+  get 'reservations/new'
+
+  get 'reservations/create'
+
+  get 'reservations/destoy'
+
   devise_for :users
   root to: 'pages#home'
 
