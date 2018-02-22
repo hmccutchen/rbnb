@@ -3,13 +3,13 @@ class ReservationsController < ApplicationController
 
 
   def new
-      @reservation = Reservation.new
+    @reservation = Reservation.new
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.dog = @dog
-    # @reservation.user = current_user
+    @reservation.user = current_user
     if @reservation.save!
       flash[:notice] = "Succesfully made a reservation"
       redirect_to dogs_path
