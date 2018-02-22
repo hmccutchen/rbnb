@@ -1,0 +1,12 @@
+
+<div class="container">
+
+<h1>DogGO</h1>
+
+<% @dogs.each do |d| %>
+<%=link_to d.name%>
+<p><%= d.age %></p>
+<p><%= d.breed %></p>
+<p><%= d.user_id %></p>
+<% end %>
+</div>
