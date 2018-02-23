@@ -1,7 +1,7 @@
 <%= link_to "reserve this dog", new_dog_reservation_path(@dog) %>
 
 <div class="container">
-
+<h1>Dog!</h1>
   <h1>Your Dog! </h1>
   <p><%= @dog.name %></p>
   <p><%= @dog.age %></p>
@@ -14,3 +14,5 @@
   <hr>
   <%= render "reservations/go_back" %>
 </div>
+
+<%= link_to "Book",  new_dog_reservation_path(@dog), class: "btn btn-primary" %>

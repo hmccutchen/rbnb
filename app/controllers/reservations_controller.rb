@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_dog, only: [:create, :new]
+  before_action :set_dog, only: [:create, :new, :destroy]
 
 
   def new
@@ -17,14 +17,20 @@ class ReservationsController < ApplicationController
       flash[:alert] = "You shall not pass"
       render :new  # renders the new view
     end
+
+    def show
+    end
+
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to dogs_path
   end
-
-#   def destroy
-#     @reservation.destroy
-#   end
+   end
 
 
-#   private
+  private
 
   def reservation_params
     params.require(:reservation).permit(:date)
