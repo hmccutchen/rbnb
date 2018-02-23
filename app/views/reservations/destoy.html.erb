@@ -1,0 +1,20 @@
+<h1>Reservations#destoy</h1>
+<p>Find me in app/views/reservations/destoy.html.erb</p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>cancelling Reservation on <%= @dog.name %></h1>
+
+
+      <%= simple_form_for([@dog, @reservation]) do |f| %>
+      <%= f.error_notification %>
+        <%= f.input :date %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+<%= link_to "go back", dogs_path %>
+      <%#= link_to 'Back', cocktails_path %>
+    </div>
+  </div>
+</div>
