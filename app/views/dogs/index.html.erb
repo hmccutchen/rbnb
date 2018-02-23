@@ -2,15 +2,36 @@
 <div class="container">
 <%= link_to "lets add a dog", new_dog_path %>
 
-<h1>DogGO</h1>
+  <div class="text-right">
+    <%= link_to "lets add a dog", new_dog_path, class: "btn btn-primary" %>
+  </div>
 
-<% @dogs.each do |dog| %>
-  <%=link_to dog.name, dog_path(dog)%>
-  <p><%= dog.age %></p>
-  <p><%= dog.breed %></p>
-  <p><%= dog.user_id %></p>
-  <%= link_to "delete", dog_path(dog), method: :delete %>
-<% end %>
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1519137847-189aca33af2b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=21eff8fb6e8bee9d55679ddc727f9dac&auto=format&fit=crop&w=800&q=60');">
+    <div class="banner-content">
+      <h1>DogGO</h1>
+      <p>rent a dog</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <% @dogs.each do |dog| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to dog_path(dog) do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/257540/pexels-photo-257540.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb');">
+            <p class="card-category"><%= dog.breed %></p>
+            <div class="card-description">
+              <h2><%= dog.name %></h2>
+              <p><%= dog.age %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
+
+
 </div>
-
-
