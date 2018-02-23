@@ -1,12 +1,18 @@
+<%= link_to "reserve this dog", new_dog_reservation_path(@dog) %>
 
 <div class="container">
 <h1>Dog!</h1>
-
-
-<p><%= @dog.name %></p>
-<p><%= @dog.age %></p>
-<p><%= @dog.breed %></p>
-<p><%= @dog.description %></p>
+  <h1>Your Dog! </h1>
+  <p><%= @dog.name %></p>
+  <p><%= @dog.age %></p>
+  <p><%= @dog.breed %></p>
+  <p><%= @dog.description %></p>
+  <h4>reservations</h4>
+<% @dog.reservations.each do |d| %>
+  <p><%= d.date.to_formatted_s(:long) %></p>
+  <% end %>
+  <hr>
+  <%= render "reservations/go_back" %>
 </div>
 
 <%= link_to "Book",  new_dog_reservation_path(@dog), class: "btn btn-primary" %>
