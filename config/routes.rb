@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'reservations/destoy'
 
   devise_for :users
-  root to: 'pages#home'
+  root to: 'dogs#index'
 
   resources :dogs do
     resources :reservations
