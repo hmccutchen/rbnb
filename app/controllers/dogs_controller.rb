@@ -45,7 +45,7 @@ private
 
 def dog_params
 
-  params.require(:dog).permit(:name, :breed, :age, :description, :user_id)
+  params.require(:dog).permit(:name, :breed, :age, :description, :user_id, :photo)
 end
 
 def set_dog
