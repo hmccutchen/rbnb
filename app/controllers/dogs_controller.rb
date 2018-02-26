@@ -8,13 +8,19 @@ class DogsController < ApplicationController
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
-        lng: dog.longitude#,
+        lng: dog.longitude,
       }
     end
   end
 
   def show
     @dog = Dog.find(params[:id])
+
+     @marker = [{
+        lat: @dog.latitude,
+        lng: @dog.longitude,
+      }]
+
   end
 
   def edit
