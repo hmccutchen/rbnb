@@ -18,6 +18,7 @@
 
   <%= render "reservations/go_back" %>
   <%= link_to "edit your dog", edit_dog_path(@dog), class: "btn btn-default" %>
+  <%= link_to "delete your dog", dog_path(@dog), method: :delete %>
 </div>
 
 
