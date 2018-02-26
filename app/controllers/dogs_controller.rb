@@ -1,6 +1,10 @@
 class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+
+
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
   def index
 
     @dogs = Dog.where.not(latitude: nil, longitude: nil)
@@ -14,6 +18,7 @@ class DogsController < ApplicationController
   end
 
   def show
+
     @dog = Dog.find(params[:id])
 
      @marker = [{
@@ -21,9 +26,24 @@ class DogsController < ApplicationController
         lng: @dog.longitude,
       }]
 
+
+    # @dog = Dog.find(params[:id])
+
   end
 
   def edit
+    # @dog = Dog.find(params[:id])
+  end
+
+  def update
+    # @dog = Dog.find(params[:id])
+    @dog.update(dog_params)
+    current_user == @dog.user
+    @dog.destroy
+    redirect_to dog_path
+    else
+    flash[:alert] = "this is not your dog!"
+    redirect_to dogs_path
 
   end
 
@@ -39,7 +59,7 @@ def create
 end
 
 def destroy
-  @dog = Dog.find(params[:id])
+  # @dog = Dog.find(params[:id])
   if current_user == @dog.user
     @dog.destroy
     redirect_to dogs_path
@@ -53,8 +73,13 @@ private
 
 def dog_params
 
-  params.require(:dog).permit(:name, :breed, :age, :address, :description, :user_id)
+  params.require(:dog).permit(:name, :breed, :age, :address, :description, :user_id, :photo)
 end
+
+def set_dog
+  @dog = Dog.find(params[:id])
+end
+
 
 end
 
