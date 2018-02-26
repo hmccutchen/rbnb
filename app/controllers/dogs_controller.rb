@@ -1,12 +1,34 @@
 class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
+
+
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
   def index
-    @dogs = Dog.all
+
+    @dogs = Dog.where.not(latitude: nil, longitude: nil)
+
+    @markers = @dogs.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+      }
+    end
   end
 
   def show
+
+    @dog = Dog.find(params[:id])
+
+     @marker = [{
+        lat: @dog.latitude,
+        lng: @dog.longitude,
+      }]
+
+
     # @dog = Dog.find(params[:id])
+
   end
 
   def edit
@@ -51,12 +73,13 @@ private
 
 def dog_params
 
-  params.require(:dog).permit(:name, :breed, :age, :description, :user_id, :photo)
+  params.require(:dog).permit(:name, :breed, :age, :address, :description, :user_id, :photo)
 end
 
 def set_dog
   @dog = Dog.find(params[:id])
 end
+
 
 end
 
