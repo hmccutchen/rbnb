@@ -16,7 +16,13 @@ class DogsController < ApplicationController
   def update
     # @dog = Dog.find(params[:id])
     @dog.update(dog_params)
+    current_user == @dog.user
+    @dog.destroy
     redirect_to dog_path
+    else
+    flash[:alert] = "this is not your dog!"
+    redirect_to dogs_path
+
   end
 
   def new
