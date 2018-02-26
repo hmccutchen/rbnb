@@ -1,7 +1,16 @@
 class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @dogs = Dog.all
+
+    @dogs = Dog.where.not(latitude: nil, longitude: nil)
+
+    @markers = @dogs.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude#,
+      }
+    end
   end
 
   def show
@@ -38,9 +47,8 @@ private
 
 def dog_params
 
-  params.require(:dog).permit(:name, :breed, :age, :location, :description, :user_id)
+  params.require(:dog).permit(:name, :breed, :age, :address, :description, :user_id)
 end
-
 
 end
 
