@@ -1,15 +1,22 @@
 class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
   def index
     @dogs = Dog.all
   end
 
   def show
-    @dog = Dog.find(params[:id])
+    # @dog = Dog.find(params[:id])
   end
 
   def edit
+    # @dog = Dog.find(params[:id])
+  end
 
+  def update
+    # @dog = Dog.find(params[:id])
+    @dog.update(dog_params)
+    redirect_to dog_path
   end
 
   def new
@@ -24,7 +31,7 @@ def create
 end
 
 def destroy
-  @dog = Dog.find(params[:id])
+  # @dog = Dog.find(params[:id])
   if current_user == @dog.user
     @dog.destroy
     redirect_to dogs_path
@@ -38,9 +45,12 @@ private
 
 def dog_params
 
-  params.require(:dog).permit(:name, :breed, :age, :description, :user_id)
+  params.require(:dog).permit(:name, :breed, :age, :description, :user_id, :photo)
 end
 
+def set_dog
+  @dog = Dog.find(params[:id])
+end
 
 end
 

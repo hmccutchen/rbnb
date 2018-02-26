@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
-gem 'devise'
+
+gem 'cloudinary'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
-
+gem 'carrierwave', '~> 1.2'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

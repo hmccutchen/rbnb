@@ -1,5 +1,5 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+
+
 
 
 
@@ -11,7 +11,8 @@
 
       <%= simple_form_for([@dog, @reservation]) do |f| %>
       <%= f.error_notification %>
-        <%= f.input :date %>
+         <h5> Start: <%= f.input :date %></h5>
+       <h5> End: <%= f.input :date %> </h5>
         <%= f.submit class: "btn btn-primary" %>
       <% end %>
        <%= render "go_back" %>
@@ -20,29 +21,11 @@
   </div>
 </div>
 
-<!-- <style>
-
-h1 {
-  color: green;
-}
-
-
-
-/*body {
-
-  background-image: url('https://picsum.photos/200/300/?random');
-  background-image: cover;
-  background-repeat: no-repeat;
-   100vh;
-}*/
-
-}
 
 
 
 
 
-</style> -->
 
 
 

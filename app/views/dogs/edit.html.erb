@@ -1,0 +1,11 @@
+
+<div class="container">
+<%= simple_form_for(@dog) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :breed %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<%= render "/reservations/go_back" %>
+</div>
+<% end %>

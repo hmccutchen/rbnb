@@ -6,4 +6,5 @@ class Dog < ApplicationRecord
   validates :description, presence: true
   validates :age, presence: true
   validates :breed, presence: true
+   mount_uploader :photo, PhotoUploader
 end
