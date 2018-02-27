@@ -1,0 +1,17 @@
+<style>
+  .dog-info {
+    width: 100%;
+    padding: 10px;
+  }
+</style>
+<div class="map-box">
+  <div class="dog-info">
+  <h4><%= dog.name %></h4>
+  <p> <%= dog.address %></p>
+  <p> <%= dog.breed %></p>
+  </div>
+</div>
+
+<%= link_to dog_path(dog) do %>
+  <%= cl_image_tag dog.photo, height: 200, width: 300, crop: :fill%>
+<% end %>
