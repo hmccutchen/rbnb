@@ -46,6 +46,24 @@
   text-decoration: none;
 }
 
+/*Search function */
+// .module-search {
+//   margin-right: 200px;
+//   width: 300px;
+// }
+
+.navbar-wagon-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-wagon .form-inline {
+  margin-left: 20px;
+}
+
+
+
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
@@ -76,3 +94,8 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+
+
+
+
