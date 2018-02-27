@@ -23,10 +23,17 @@ ActiveRecord::Schema.define(version: 20180226065239) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string "photo"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+=======
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "photo"
+>>>>>>> 7236c2768005f8a32e3a8434bf31a808b61685ba
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
