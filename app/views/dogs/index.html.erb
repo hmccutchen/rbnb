@@ -12,23 +12,18 @@
     <div class="col-xs-12 col-sm-4">
       <%= link_to dog_path(dog) do %>
       <div class="card" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=cl_image_path dog.photo %>);">
-        <p class="card-category"><%= dog.breed %></p>
+        <p class="card-category"></p>
         <div class="card-description">
-          <h2><%= dog.name %></h2>
-          <p><%= dog.age %></p>
+
         </div>
       </div>
       <% end %>
+          <h4><%= dog.name %></h4>
     </div>
     <% end %>
   </div>
 
 
-  <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-></div>
+
 
 </div>
