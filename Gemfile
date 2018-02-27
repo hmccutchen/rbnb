@@ -20,6 +20,7 @@ gem 'webpacker'
 
 gem 'devise'
 
+gem 'pg_search'
 
 
 gem "geocoder"

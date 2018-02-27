@@ -6,10 +6,15 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search_term_user = params[:query]
-    # @dogs = Dog.where(name: @search_term_user)
 
-    @dogs = Dog.where.not(latitude: nil, longitude: nil)
+    if params[:query]
+      @dogs = Dog.search_by_breed_name_age(params[:query])
+      @search_term = params[:query]
+    else
+      @dogs = Dog.all
+    end
+
+    @dogs = @dogs.where.not(latitude: nil, longitude: nil)
 
     @markers = @dogs.map do |dog|
       {
