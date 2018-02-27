@@ -1,37 +1,37 @@
 
 
-<div class="container dog-details">
-  <div>
-    <%= cl_image_tag @dog.photo, height: 300, width: 400, crop: :fill%>
-  </div>
-  <h1>Dog details</h1>
-  <%= link_to "Book",  new_dog_reservation_path(@dog), class: "btn btn-primary" %>
-  <p>Name: <%= @dog.name %></p>
-  <p>Age: <%= @dog.age %></p>
-  <p>Breed: <%= @dog.breed %></p>
-  <p><%= @dog.description %></p>
-  <h4>reservations</h4>
-  <% @dog.reservations.each do |d| %>
-  <p><%= d.date.to_formatted_s(:long) %></p>
-  <% end %>
+<div class="container">
+  <div class="dog-details">
+    <div>
+      <div>
+        <%= cl_image_tag @dog.photo, height: 300, width: 400, crop: :fill%>
+      </div>
+      <h1>Dog details</h1>
+      <%= link_to "Book",  new_dog_reservation_path(@dog), class: "btn btn-primary" %>
+      <p>Name: <%= @dog.name %></p>
+      <p>Age: <%= @dog.age %></p>
+      <p>Breed: <%= @dog.breed %></p>
+      <p><%= @dog.description %></p>
+      <h4>reservations</h4>
+      <% @dog.reservations.each do |d| %>
+      <p><%= d.date.to_formatted_s(:long) %></p>
+      <% end %>
+      <%= render "reservations/go_back" %>
+    </div>
 
 
-  <%= render "reservations/go_back" %>
+    <div class="container-map">
+     <div
+     id="map"
+     style="width: 100%;
+     height: 600px;"
+     data-markers="<%= @marker.to_json %>"
+     ></div>
+   </div>
+ </div>
 
-
-   <div
-  id="map"
-  style="width: 50%;
-  height: 600px;
-
-  "
-  data-markers="<%= @marker.to_json %>"
-></div>
-
-
-
-  <%= link_to "edit your dog", edit_dog_path(@dog), class: "btn btn-default" %>
-  <%= link_to "delete your dog", dog_path(@dog), method: :delete, class: "btn btn-danger" %>
+ <%= link_to "edit your dog", edit_dog_path(@dog), class: "btn btn-default" %>
+ <%= link_to "delete your dog", dog_path(@dog), method: :delete, class: "btn btn-danger" %>
 
 </div>
 
